@@ -10,7 +10,7 @@ import { TreeDataService } from './tree/services/tree-data.sevice';
 })
 export class AppComponent {
   title = 'app-tree';
-  tree$: Observable<{ tree: TreeData[] }>;
+  tree$: Observable<TreeData[]>;
 
   constructor(private treeDataService: TreeDataService) {
     this.tree$ = this.treeDataService.getTreeData();
