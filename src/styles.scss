@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/fonts";
+
+$font_ptroot: PT Root UI, Roboto, sans-serif;
+$color_basic: #999999;
+$color_dark: #333333;
+$color_icon: #711000;
+body,
+html {
+  height: 100%;
+}
+
+body, body p, h1, h2, h3, h4, h5, h6 {
+  font-family: $font_ptroot;
+  line-height: normal;
+  color: $color_basic;
+}
+
+p, span {
+  color: $color_dark;
+}
+
+fa-icon {
+  color: $color_icon;
+}
+

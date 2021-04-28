@@ -1,0 +1,20 @@
+<ng-container *ngFor="let node of treeData; index as i">
+  <div class="directory" *ngIf="node.type === 'folder'; else fileView" (click)="expand(i)">
+    <fa-icon [icon]="faFolder" *ngIf="!isExpanded(i); else folderOpen"></fa-icon>
+    <ng-template #folderOpen>
+      <fa-icon [icon]="faFolderOpen"></fa-icon>
+    </ng-template>
+    {{node.name}} ({{getFileCounter(node)}})
+  </div>
+  <ng-template #fileView>
+    <div class="file">
+      <fa-icon [icon]="faFile"></fa-icon>
+      {{node.name}}
+    </div>
+  </ng-template>
+  <app-tree-view [treeData]="node.children" *ngIf="isExpanded(i)">
+  </app-tree-view>
+</ng-container>
+
+
+

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TreeData } from './tree/interfaces/tree-data';
+import { Observable } from 'rxjs';
+import { TreeDataService } from './tree/services/tree-data.sevice';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-tree';
+  tree$: Observable<{ tree: TreeData[] }>;
+
+  constructor(private treeDataService: TreeDataService) {
+    this.tree$ = this.treeDataService.getTreeData();
+  }
 }
